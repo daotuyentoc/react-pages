@@ -5,7 +5,7 @@ import 'swiper/css';
 function List() {
     const [animes, setAnimes] = useState([]);
     const [arr, setArr] = useState([]);
-    const [show, setShow] = useState(true);
+    const show= true;
 
     let list = []
     const handleClick = (image, title, type, url, time, description) => {

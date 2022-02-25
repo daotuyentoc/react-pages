@@ -11,3 +11,91 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.image {
+  position: relative;
+  height: 0;
+  padding-bottom: 130%;
+  /* overflow: hidden; */
+  transition: all 0.5s ease;
+}
+
+
+.image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-wrapper:hover .swiper-slide .image {
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.swiper-wrapper .swiper-slide .image:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
+.popup.show {
+  display: block;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.popup-inner {
+  max-width: 900px;
+  margin: auto;
+  max-height: 100vh;
+  margin-top: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+.close {
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color:#fff;
+  font-size: 40px;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #00000057;
+  position: absolute;
+  z-index: -1;
+}
+body .swiper{
+  padding: 40px;
+}
+body .swiper>div{
+  overflow-y: visible;
+}
+.content{
+  padding: 20px;
+}
+
+
+.popup .image{
+  height: 500px;
+  width: 300px;
+  padding:0;
+}
+.popup .image img{
+  height: 500px;
+  width: 300px;
+}
