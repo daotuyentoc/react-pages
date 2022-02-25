@@ -2,20 +2,20 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Detail from "./Detail";
 import 'swiper/css';
-function Timeout() {
+function List() {
     const [animes, setAnimes] = useState([]);
     const [arr, setArr] = useState([]);
     const [show, setShow] = useState(true);
 
     let list = []
     const handleClick = (image, title, type, url, time, description) => {
-        list['image']=image;
-        list['title']=title;
-        list['type']=type;
-        list['url']=url;
-        list['time']=time;
-        list['description']=description;
-        list['show']= show;
+        list['image'] = image;
+        list['title'] = title;
+        list['type'] = type;
+        list['url'] = url;
+        list['time'] = time;
+        list['description'] = description;
+        list['show'] = show;
         setArr(list);
 
     };
@@ -53,9 +53,9 @@ function Timeout() {
                 ))}
             </Swiper>
             <div>
-                <Detail array={arr}/>
+                <Detail array={arr} />
             </div>
-            </div>
+        </div>
     )
 }
 export default List;
