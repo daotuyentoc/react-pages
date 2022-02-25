@@ -14,13 +14,13 @@ jobs:
 
     steps:
       - name: Checkout
-        user: actions/checkout@v1
+        uses: actions/checkout@v1
 
-      -name: Install and build
+      - name: Install and build
         run: npm install && npm run build
-
+      
       - name: Deploy
-        uses: Twain/github-pages-deploy-action@4.1.1
-        with: 
-          branch: gh-pages
-          folder: build
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.     
