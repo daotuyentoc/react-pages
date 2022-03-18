@@ -1,10 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import List from './List';
+import MovieList from './MovieList';
+import Background from './Background';
+import SwitchTheme from './SwitchTheme';
+import { useState } from 'react';
 
 function App() {
+  const [darkMode,setDarkMode] = useState(true);
   return (
-    <List/>
+    <div className={`${darkMode ? 'dark-mode' : ''}`}>
+      <Background />
+      <SwitchTheme handleSwitchTheme= {setDarkMode}/>
+      <MovieList />
+    </div>
   );
 }
 

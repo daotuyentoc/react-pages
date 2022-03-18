@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Detail from "./Detail";
 import 'swiper/css';
-function List() {
+function List(movieName) {
     const [animes, setAnimes] = useState([]);
     const [arr, setArr] = useState([]);
-    const show= true;
-
+    const show = true;
     let list = []
     const handleClick = (image, title, type, url, time, description) => {
         list['image'] = image;
@@ -17,23 +16,37 @@ function List() {
         list['description'] = description;
         list['show'] = show;
         setArr(list);
-
     };
+
     useEffect(() => {
-        fetch('https://api.jikan.moe/v4/anime?q=one%20&sfw')
+        fetch('https://api.jikan.moe/v4/anime?q='+movieName.movieName)
             .then(res => res.json())
             .then(anime => {
                 setAnimes(anime.data)
             })
     }, [])
     return (
-        <div>
+        <div className="item-movie">
+            <h2>{movieName.movieName} Movie</h2>
             <Swiper
-                spaceBetween={20}
-                slidesPerView={5}
-                navigation
-                pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
+                spaceBetween={30}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    425: {
+                        slidesPerView: 2,
+                    },
+                    640: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                    1200: {
+                        slidesPerView: 5,
+                    },
+                }}
             >
                 {animes.map((anime, index) => (
                     <SwiperSlide key={index}>
