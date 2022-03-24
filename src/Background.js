@@ -1,7 +1,7 @@
 import ReactPlayer from "react-player"
 import { useState } from "react";
 function Background() {
-    const [isMuted] = useState(true)
+    const [isMuted] = useState(false)
     return (
         <div className="section-background">
             <div className='background-wrapper'>

@@ -146,6 +146,22 @@ body .swiper>div {
   align-items: center;
   width: fit-content;
 }
+.dark-mode {
+  color: #fff;
+  background: #111;
+}
+.dark-mode .content{
+  background: #111;
+}
+.dark-mode .close{
+  color: #fff;
+}
+.swich-theme {
+  display: flex;
+  justify-content: end;
+  margin-top: 30px;
+  margin-right: 40px;
+}
 
 .container {
   max-width: 1200px;

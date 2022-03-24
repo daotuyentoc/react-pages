@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {IoClose,IoPlay} from "react-icons/io5"
+import { IoClose, IoPlay } from "react-icons/io5"
 function Detail(array) {
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
@@ -17,6 +17,9 @@ function Detail(array) {
         setDescription(array.array.description);
         setShow(array.array.show)
     }, [array])
+    const closeDetail=()=>{
+        setShow(false);
+    }
     return (
         <div className={`popup ${show ? "show" : ""}`}>
             <div className="overlay"></div>
@@ -30,8 +33,10 @@ function Detail(array) {
                         <div className="type"><strong>Type:</strong> {type}</div>
                         <div className="time"><strong>Time:</strong> {time ? time : ""}</div>
                         <div className="description">{description}</div>
-                        <div className="close" onClick={() => { setShow(false) }}><IoClose /></div>
-                        <a className="watch" href={url}>Watch <IoPlay/></a>
+                        <div className="close"
+                            onClick={closeDetail}
+                        ><IoClose /></div>
+                        <a className="watch" href={url}>Watch <IoPlay /></a>
                     </div>
                 </div>
             </div>
