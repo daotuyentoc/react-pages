@@ -1,25 +1,24 @@
-import './App.css';
-import MovieList from './MovieList';
-import Background from './Background';
-import { useState } from 'react';
-
+import ListingIndex from './page/listing/index';
+import Home from './page/home/index';
+import { Routes, Route, useLocation } from "react-router-dom";
+import Listing from './page/listing/Listing';
+import Header from './page/header';
+import { useLayoutEffect } from 'react';
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const handleTheme = () => {
-    setDarkMode(!darkMode);
-  }
-  return (
-    <div className={`${darkMode ? 'dark-mode' : ''}`}>
-      <Background />
-      <div className='container'>
-        <div className='swich-theme'>
-          <button onClick={handleTheme}
-          >Switch theme</button>
-        </div>
-      </div>
-      <MovieList />
-    </div>
-  );
+    const location = useLocation();
+    useLayoutEffect(() => {
+        document.documentElement.scrollTo(0, 0);
+    }, [location.pathname]);
+    return (
+        <>
+            <Header />
+            <Routes>
+                <Route path="/react-pages" element={<Home />} exec />
+                <Route path="/react-pages/list-movie" element={<ListingIndex />} exact />
+                <Route path="/react-pages/list-movie/:movieName" element={<Listing />} exact />
+            </Routes>
+        </>
+    );
 }
 
 export default App;
